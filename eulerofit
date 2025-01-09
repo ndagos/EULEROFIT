@@ -1,0 +1,110 @@
+#! /bin/csh -f
+# @(#) Eulerofit 1.0 02/16/01
+ 
+if ((help == "$1") || ("$1" == "-H")) then
+ more << End_of_help
+USAGE
+        eulerofit [-v velo_file] [-e fix_file] [-p1 XYZpole ] [-p2 lonlat_pole] [-h]
+ 
+DESCRIZIONE
+        Calcola il polo di rotazione euleriano o ruota le velocita'
+        -v   file di velocita' di input formato GMT (lon lat Ve  Nn  Se  Sn  corr  sta)
+        -p1  Legge file polo di rotazione e ruota le velocita'
+                formato: Wx  Wy  Wz               (10^-3 rad/Myr)
+                       xx  xy  xz  yy  yz  zz   (10^-6 rad**2/Myr**2)
+        -p2  Legge file polo di rotazione e ruota le velocita'
+                formato: lat lon rot (deg/Myr)
+        -e   stima il polo di rotazione ai minimi quadrati (per i siti in fix_file)
+             formato: specificare sito e placca di appartenenza:
+             siteid  PL    (siteid character*4, PL characte*2)
+        -err propaga nelle velocità l'errore del polo di rotazione
+        -h aiuto!!
+ 
+EXAMPLE
+        eulerofit -e sites.fix -v file.vel
+        eulerofit -p1 pole.xyz -v file.vel
+        eulerofit -p2 pole.enu -v file.vel
+ 
+AUTHOR
+        Nicola D'Agostino
+End_of_help
+ 
+ exit 1
+endif
+
+set k = 1
+set err = 0
+set in = 0
+set MODE = 0
+set ERR = 0
+setenv VELFILE
+setenv FIXFILE
+setenv POLEFILE
+ 
+while ($k <= $#argv)
+ switch ($argv[$k])
+  case -e:
+   @ k++
+   set MODE = 0
+   setenv FIXFILE $argv[$k]
+   setenv POLEFILE pole.in
+   set in = 1
+   @ k++
+  breaksw
+ 
+  case -p1:
+  @ k++
+   set MODE = 1
+   setenv FIXFILE fixsta
+   setenv POLEFILE $argv[$k]
+   set in = 1
+   @ k++
+  breaksw
+
+  case -err:
+   set ERR = 1
+   set in = 1
+   @ k++
+  breaksw
+ 
+  case -p2:
+   @ k++
+   set MODE = 2
+   setenv FIXFILE fixsta
+   setenv POLEFILE $argv[$k]
+   set in = 1
+   @ k++
+  breaksw
+ 
+  case -v:
+   @ k++
+   setenv VELFILE $argv[$k]
+   @ k++
+  breaksw
+ 
+  default:
+   set err = 1
+   @ k++
+  breaksw
+ 
+ endsw
+end
+ 
+if  (($err == 1) || ($in == 0)) then
+ cat << End_of_Usage
+
+Usage: eulerofit [-v velo_file] [-e fix_file] [-p1 XYZpole] [-p2 latlon_pole] [-err] [-h]
+For Additional help type: eulerofit help
+
+End_of_Usage
+ exit 1
+endif
+ 
+echo $MODE $ERR >  eulerofit.drv
+echo $VELFILE   >> eulerofit.drv
+echo $POLEFILE  >> eulerofit.drv
+echo $FIXFILE   >> eulerofit.drv
+
+./eulerofit_single_precision.e
+
+exit 0
