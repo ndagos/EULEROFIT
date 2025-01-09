@@ -8,6 +8,7 @@ eulerofit operates in two modes:
 - calculate [velcalc.out] velocities predicted by rotation defined in xyzpole.out or enupole.out files.
 
 The imput data format is the following:
+
   lon        lat         East        North       sigE        sigN        corrE-N     SiteID
   
  [deg]      [deg]      [mm/yr]      [mm/yr]     [mm/yr]     [mm/yr]      [-1/1]     [4 chars]
