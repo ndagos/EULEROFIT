@@ -19,20 +19,28 @@ The fortran code is contained in eulerofit_single_precision.f while eulerofit is
 to assemble and format input files.
 
 # ------------------------------------------
-For usage and an example workflow, try:
-./eulerofit -v GMT_Velocita_EU.dat -e Ap.fix
+For usage and an example workflow:
+
 Calculate best fit Eulerian pole of the Apulian microplate using the stations defined in Ap.fix.
-GNSS velocity field from:
 
-Devoti R., N. D'Agostino, E. Serpelloni, G. Pietrantonio, et al., 2017. A Combined Velocity Field of the Mediterranean Region, ANNALS OF GEOPHYSICS, 60, 2, 2017, S0217; doi:10.4401/ag-7059.
+./eulerofit -v GMT_Velocita_EU.dat -e Ap.fix
 
-./eulerofit -v GMT_Velocita_EU.dat -p1 xyzpole.out
 
 Subtract the Eulerian pole defined in xyzpole.out (Cartesian components).
 
-./eulerofit -v GMT_Velocita_EU.dat -p2 enupole.out
+./eulerofit -v GMT_Velocita_EU.dat -p1 xyzpole.out
+
 
 Subtract the Eulerian pole defined in enupole.out (lon lat rot).
+
+./eulerofit -v GMT_Velocita_EU.dat -p2 enupole.out
+
+
+GNSS velocity field from:
+
+Devoti R., N. D'Agostino, E. Serpelloni, G. Pietrantonio, et al., 2017. A Combined Velocity Field of the Mediterranean Region, 
+
+ANNALS OF GEOPHYSICS, 60, 2, 2017, S0217; doi:10.4401/ag-7059.
 
 # ------------------------------------------
 To compile eulerofit_single_precision.f:
