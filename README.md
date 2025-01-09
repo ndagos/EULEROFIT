@@ -16,7 +16,7 @@ eulerofit returns statistical metrics to evaluated the goodness of the fit and p
 The fortran code is contained in eulerofit_single_precision.f while eulerofit is a csh driver
 to assemble and format input files.
 
-# --------------------------------------------
+# ------------------------------------------
 For usage and an example workflow, try:
 ./eulerofit -v GMT_Velocita_EU.dat -e Ap.fix
 Calculate best fit Eulerian pole of the Apulian microplate using the stations defined in Ap.fix.
