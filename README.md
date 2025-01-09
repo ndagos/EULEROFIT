@@ -26,3 +26,7 @@ Subtract the Eulerian pole defined in xyzpole.out (Cartesian components).
 
 ./eulerofit -v GMT_Velocita_EU.dat -p2 enupole.out
 Subtract the Eulerian pole defined in enupole.out (lon lat rot).
+
+# ------------------------------------------
+To compile eulerofit_single_precision.f:
+make -f make_Osx
