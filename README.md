@@ -4,8 +4,8 @@ By Nicola D'Agostino, last updated 2024
 
 eulerofit operates in two modes:
 - calculates the best-fit Eulerian poles of rotation for the stations defined in file *.fix (format: ID_STATION[4 chars]  Plate[2 Chars]
-- subtract  [rescalc.out] rotation defined in xyzpole.out or enupole.out files
-- calculate [velcalc.out] velocities predicted by rotation defined in xyzpole.out or enupole.out files.
+- subtracts  [rescalc.out] rotation defined in xyzpole.out or enupole.out files
+- calculates [velcalc.out] velocities predicted by rotation defined in xyzpole.out or enupole.out files.
 
 The imput data format is the following:
 
