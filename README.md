@@ -46,3 +46,5 @@ ANNALS OF GEOPHYSICS, 60, 2, 2017, S0217; doi:10.4401/ag-7059.
 To compile eulerofit_single_precision.f:
 
 make -f make_Osx
+
+Requires LAPACK and BLAS libraries.
