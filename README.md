@@ -9,6 +9,7 @@ eulerofit operates in two modes:
 
 The imput data format is the following:
   lon        lat         East        North       sigE        sigN        corrE-N     SiteID
+  
  [deg]      [deg]      [mm/yr]      [mm/yr]     [mm/yr]     [mm/yr]      [-1/1]     [4 chars]
 
 eulerofit returns statistical metrics to evaluated the goodness of the fit and plate rigidity.
