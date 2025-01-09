@@ -1,12 +1,7 @@
 
 # -------- EULEROFIT ---------------
-#        /Users/dago/bin/NR/double/djacobi.o \
-#        /Users/dago/bin/NR/double/deigsrt.o \
 
 ff=gfortran
-#ff=/sw/bin/gfortran-fsf-4.8
-#ff=g77
-# -finit-local-zero
 
 eulerofit_single_precision.e: eulerofit_single_precision.o
 	$(ff)  eulerofit_single_precision.o -llapack -lblas -o eulerofit_single_precision.e
