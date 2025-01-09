@@ -22,6 +22,9 @@ to assemble and format input files.
 For usage and an example workflow, try:
 ./eulerofit -v GMT_Velocita_EU.dat -e Ap.fix
 Calculate best fit Eulerian pole of the Apulian microplate using the stations defined in Ap.fix.
+GNSS velocity field from:
+
+Devoti R., N. D'Agostino, E. Serpelloni, G. Pietrantonio, et al., 2017. A Combined Velocity Field of the Mediterranean Region, ANNALS OF GEOPHYSICS, 60, 2, 2017, S0217; doi:10.4401/ag-7059.
 
 ./eulerofit -v GMT_Velocita_EU.dat -p1 xyzpole.out
 Subtract the Eulerian pole defined in xyzpole.out (Cartesian components).
