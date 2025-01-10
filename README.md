@@ -1,6 +1,6 @@
 #EULEROFIT
 Fortran code to estimate a pole of rotation from GNSS data.
-By Nicola D'Agostino, last updated 2024
+By Nicola D'Agostino, last updated 2023
 
 eulerofit operates in two modes:
 - calculates the best-fit Eulerian poles of rotation for the stations defined in file *.fix (format: ID_STATION[4 chars]  Plate[2 Chars]
